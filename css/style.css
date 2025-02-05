@@ -1,0 +1,128 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #34251f;
+}
+
+.primary-bgcolor {
+  background-color: #34251f;
+}
+
+.primary-txtcolor {
+  color: #34251f;
+}
+
+.bg-custom {
+  background-color: #e5cec057;
+}
+
+.text-size {
+  font-size: 60px;
+  line-height: 1;
+}
+
+.left {
+  right: 255px;
+}
+
+.bg-pink {
+  background-color: #e7d1c3;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+@media (max-width: 768px) {
+  .width-75 {
+    width: 100%;
+  }
+}
+
+.height {
+  height: 600px;
+}
+
+@media (max-width: 768px) {
+  .height {
+    height: 500px;
+  }
+}
+
+input {
+  background-color: #f9f9f9;
+}
+
+.footer-color {
+  color: #b7a989;
+}
+
+.footer-btn-color {
+  background-color: #b7a989;
+}
+
+/* Ensure smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar styles */
+.navbar {
+  transition: transform 0.3s ease-in-out; /* Smooth transition for sliding effect */
+}
+
+/* Active state for mobile navbar */
+.navbar.active {
+  transform: translateX(0); /* Slide in from the right */
+}
+
+.bar {
+  transition: 0.3s ease-in-out;
+}
+
+#mobile-menu.active .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(10px); /* Cross effect */
+}
+
+#mobile-menu.active .bar:nth-child(2) {
+  opacity: 0; /* Hide middle bar */
+}
+
+#mobile-menu.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px); /* Cross effect */
+}
+
+/* Mobile Menu sliding from right (Corrected) */
+#mobile-nav {
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 0.5s ease; /* Smooth slide */
+}
+
+/* Initially hide the mobile menu */
+#mobile-nav.hidden {
+  /* This is the crucial line */
+  transform: translateX(100%);
+}
+
+/* Show the menu when the 'translate-x-full' class is removed */
+#mobile-nav:not(.translate-x-full) {
+  /* Use :not(.translate-x-full) */
+  transform: translateX(0); /* Slide in when visible */
+}
+
+/* Close button positioned at top-right */
+#close-menu {
+  position: absolute;
+  top: 1rem; /* Adjust for spacing */
+  right: 1rem; /* Right-aligned */
+}
+
+.gradient {
+  background: linear-gradient(90deg, #f0dfd5 0%, #ffffff 100%);
+}
+
+.max-w-sx {
+  max-width: 13rem;
+}
