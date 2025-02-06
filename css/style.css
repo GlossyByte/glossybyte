@@ -1,9 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   color: #34251f;
+  font-family: "Frank Ruhl Libre", serif;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
 }
 
 .primary-bgcolor {
@@ -125,4 +134,44 @@ html {
 
 .max-w-sx {
   max-width: 13rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white !important;
+  border-radius: 100%;
+  padding: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 10; /* Make sure they appear on top of the slides */
+  font-size: 20px !important;
+  --swiper-navigation-size: 20px !important;
+}
+
+.swiper-button-prev {
+  left: 10px; /* Adjust as needed */
+}
+
+.swiper-button-next {
+  right: 10px; /* Adjust as needed */
+}
+
+/* Style to emphasize the active center slide */
+.swiper-slide-active {
+  transform: scale(1.05); /* Scale the active slide */
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
+  background-color: #e7d1c3 !important;
+}
+
+/* Ensure non-active slides have normal size */
+.swiper-slide {
+  transform: scale(0.95);
+  background-color: initial; /* Keep default background */
+  transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide-active h6 {
+  font-size: 25px !important; /* Change the title color of the active slide */
 }

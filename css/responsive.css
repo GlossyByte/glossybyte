@@ -1,14 +1,14 @@
 /* Default font sizes for all headings */
 h1 {
   font-size: 60px !important;
-  line-height: 1;
+  line-height: 1.2;
 }
 h2 {
   font-size: 50px !important;
 }
 h3 {
   font-size: 40px !important;
-  line-height: 1;
+  line-height: 1.1;
 }
 h4 {
   font-size: 30px !important;
@@ -25,7 +25,7 @@ h6 {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* Media queries with !important applied */
