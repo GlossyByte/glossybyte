@@ -29,3 +29,15 @@ mobileMenu.addEventListener("click", () => {
 closeMenuBtn.addEventListener("click", () => {
   mobileNav.classList.add("translate-x-full");
 });
+
+window.addEventListener("scroll", function () {
+  const logo = document.getElementById("logo");
+
+  if (window.scrollY > 50) {
+    logo.classList.remove("md:w-32", "w-20");
+    logo.classList.add("md:w-20", "w-12"); // Smaller size on scroll
+  } else {
+    logo.classList.remove("md:w-20", "w-12");
+    logo.classList.add("md:w-32", "w-20"); // Original size when at top
+  }
+});
