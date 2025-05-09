@@ -132,7 +132,7 @@ html {
 }
 
 .gradient {
-  background: linear-gradient(90deg, #f0dfd5 0%, #ffffff 100%);
+  background: linear-gradient(90deg, #f0dfd5 0%, #f7b2b2 100%);
 }
 
 .max-w-sx {
@@ -177,4 +177,12 @@ html {
 
 .swiper-slide-active h6 {
   font-size: 25px !important; /* Change the title color of the active slide */
+}
+
+.horizontal-line::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #7f6d5d; /* Light brown line */
+  width: 100%;
 }
