@@ -24,6 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
+window.addEventListener("load", function () {
+  if (window.location.hash) {
+    // Temporarily remove hash and scroll to top
+    const scrollY = window.scrollY;
+    const hash = window.location.hash;
+    history.replaceState(null, null, " ");
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      history.replaceState(null, null, hash);
+    }, 0);
+  }
+});
+
 var swiper = new Swiper(".swiper", {
   slidesPerView: 1,
   spaceBetween: 20,
