@@ -33,26 +33,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Swiper for Trusted Partners
   const trustedPartnersSwiper = new Swiper(".trusted-partners-swiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
+    slidesPerView: 4,
+    spaceBetween: 100,
     loop: true,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
     },
-    // navigation: {
-    //   nextEl: ".trusted-partners-swiper .swiper-button-next",
-    //   prevEl: ".trusted-partners-swiper .swiper-button-prev",
-    // },
     breakpoints: {
-      640: { slidesPerView: 2 },
-      768: { slidesPerView: 3 },
-      1024: { slidesPerView: 4 },
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+      1440: {
+        slidesPerView: 6,
+      },
     },
-    // pagination: {
-    //   el: ".trusted-partners-swiper .swiper-pagination",
-    //   clickable: true,
-    // },
   });
 
   // Swiper for Services
