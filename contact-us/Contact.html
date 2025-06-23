@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Contact Us</title>
+    <link
+      rel="icon"
+      href="/assets/icons/glossybyte-logo.png"
+      type="image/x-icon"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -119,13 +124,20 @@
 
     <section class="w-full py-[40px] md:py-[60px]">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col w-[85%] mx-auto">
+        <div
+          class="flex flex-col w-[85%] mx-auto relative"
+          style="
+            background-image: url('/assets/images/circle.png'); /* your bg image */
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 80%;
+          "
+        >
+          <span class="text-[2.5rem] md:text-[120px] font-bold leading-tight">
+            Contact
+          </span>
           <span
-            class="text-[2.5rem] md:text-[120px] font-bold md:leading-32 leading-tight"
-            >Contact</span
-          >
-          <span
-            class="text-[2.5rem] md:text-[120px] font-bold md:leading-32 leading-tight mb-4 text-end"
+            class="text-[2.5rem] md:text-[120px] font-bold leading-tight mb-4 text-end"
           >
             GLOSSY BYTE
           </span>
@@ -174,7 +186,7 @@
           ></textarea>
 
           <!-- Button -->
-          <button type="submit" class="btn btn-secondary mx-auto">
+          <button type="submit" class="btn btn-secondary">
             Free Consultation
           </button>
         </form>
@@ -185,7 +197,7 @@
       <div
         class="container rounded-2xl overflow-hidden text-center py-10 flex flex-col items-center justify-center"
         style="
-          background-image: url('/assets/images/CTA.svg');
+          background-image: url('/assets/images/CTA\ \(2\).png');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
