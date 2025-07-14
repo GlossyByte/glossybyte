@@ -1,0 +1,36 @@
+name: Deploy to Server
+on:
+  push:
+    branches: [demo]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: partner@103.235.197.116 #parner@dolby 
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup SSH connection to server
+      - name: Configure SSH Access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PARTNER_SSH_KEY }}" > ~/.ssh/server_key
+          chmod 600 ~/.ssh/server_key
+          echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
+
+      # Verify GitHub host keys on remote server
+      #- name: Setup GitHub Host Verification
+      #  run: |
+      #    ssh -i ~/.ssh/server_key \
+      #      -o StrictHostKeyChecking=no \
+      #      partner@${{ secrets.PARTNER_SERVER_IP }} \
+      #      "echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' >> ~/.ssh/known_hosts"
+      # export SITE_NAME=${GITHUB_REPOSITORY#*/}
+      # Execute deployment
+      - name: Run Deployment
+        run: |
+          ssh -i ~/.ssh/server_key \
+            -o StrictHostKeyChecking=no \
+            partner@${{ secrets.PARTNER_SERVER_IP }} \
+            "export SITE_NAME=${GITHUB_REPOSITORY#*/} && \
+             export GITHUB_ORG=${GITHUB_REPOSITORY%/*} && \
+             /var/www/partners/scripts/deploy.sh \$SITE_NAME $GITHUB_SHA"
