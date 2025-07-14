@@ -1,188 +1,154 @@
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
+/* Headings */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #34251f;
-  font-family: "Frank Ruhl Libre", serif;
+  color: #2c2c2c;
+  font-family: "Outfit", sans-serif;
 }
 
-p {
-  font-family: "Poppins", sans-serif;
+/* Responsive font sizes with clamp */
+h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
 }
+h2 {
+  font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+}
+h3 {
+  font-size: clamp(1.75rem, 3vw + 1rem, 3rem);
+}
+h4 {
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
+}
+h5 {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+}
+h6 {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+}
+
+/* Paragraphs */
+p {
+  color: #4c4c4c;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.99rem, 1vw + 0.5rem, 1rem);
+  line-height: 1.6;
+}
+
+/* Span */
 span {
   font-family: "Poppins", sans-serif;
 }
 
-.primary-bgcolor {
-  background-color: #34251f;
+/* Links */
+a {
+  color: #4c4c4c;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.8rem, 1vw + 0.2rem, 1rem);
+  transition: color 0.3s ease;
 }
 
-.primary-txtcolor {
-  color: #34251f;
+a:hover,
+a:focus {
+  color: #2c2c2c;
+  outline: none;
 }
 
-.bg-custom {
-  background-color: #e5cec057;
+.btn {
+  font-family: "Poppins", sans-serif;
+  color: #4c4c4c;
 }
 
-.text-size {
-  font-size: 60px;
-  line-height: 1;
+/* styles/buttons.css */
+
+/* styles/buttons.css */
+
+.btn {
+  @apply w-fit px-6 py-2 rounded-full transition duration-300 font-medium flex items-center cursor-pointer;
 }
 
-.left {
-  right: 255px;
+/* 1. Outline Button */
+.btn-outline {
+  @apply border text-[#4c4c4c] border-[#4C4C4C] hover:bg-gray-100;
 }
 
-.bg-pink {
-  background-color: #e7d1c3;
+/* 2. Primary Button */
+.btn-primary {
+  @apply bg-[#2C2C2C] text-white hover:bg-[#2c2c2c]/80;
 }
 
-.width-75 {
-  width: 75%;
+/* 3. Secondary Button */
+.btn-secondary {
+  @apply bg-[#A18167] text-white hover:bg-[#A18167]/80;
 }
 
-@media (max-width: 768px) {
-  .width-75 {
-    width: 100%;
-  }
+/* 4. White Button */
+.btn-white {
+  @apply bg-white text-[#2c2c2c] hover:bg-gray-200;
 }
 
-.height {
-  height: 600px;
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-@media (max-width: 768px) {
-  .height {
-    height: 500px;
-  }
+/* Add some space below slides for pagination */
+.swiper-pagination {
+  margin-top: 1rem; /* or more as needed */
+  position: relative !important; /* remove absolute positioning */
+  bottom: auto !important; /* reset bottom */
 }
 
-input {
-  background-color: #f9f9f9;
-}
-
-.footer-color {
-  color: #b7a989;
-}
-
-.footer-btn-color {
-  background-color: #b7a989;
-}
-
-/* Ensure smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Navbar styles */
-.navbar {
-  transition: transform 0.3s ease-in-out; /* Smooth transition for sliding effect */
-}
-
-/* Active state for mobile navbar */
-.navbar.active {
-  transform: translateX(0); /* Slide in from the right */
-}
-
-.bar {
-  transition: 0.3s ease-in-out;
-}
-
-#mobile-menu.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(10px); /* Cross effect */
-}
-
-#mobile-menu.active .bar:nth-child(2) {
-  opacity: 0; /* Hide middle bar */
-}
-
-#mobile-menu.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-10px); /* Cross effect */
-}
-
-/* Mobile Menu sliding from right (Corrected) */
-#mobile-nav {
-  transform: translateX(100%); /* Start off-screen to the right */
-  transition: transform 0.5s ease; /* Smooth slide */
-}
-
-/* Initially hide the mobile menu */
-#mobile-nav.hidden {
-  /* This is the crucial line */
-  transform: translateX(100%);
-}
-
-/* Show the menu when the 'translate-x-full' class is removed */
-#mobile-nav:not(.translate-x-full) {
-  /* Use :not(.translate-x-full) */
-  transform: translateX(0); /* Slide in when visible */
-}
-
-/* Close button positioned at top-right */
-#close-menu {
-  position: absolute;
-  top: 1rem; /* Adjust for spacing */
-  right: 1rem; /* Right-aligned */
-}
-
-.gradient {
-  background: linear-gradient(90deg, #f0dfd5 0%, #f7b2b2 100%);
-}
-
-.max-w-sx {
-  max-width: 13rem;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white !important;
-  border-radius: 100%;
-  padding: 20px;
-  width: 20px;
-  height: 20px;
-  z-index: 10; /* Make sure they appear on top of the slides */
-  font-size: 20px !important;
-  --swiper-navigation-size: 20px !important;
-}
-
-.swiper-button-prev {
-  left: 10px; /* Adjust as needed */
-}
-
-.swiper-button-next {
-  right: 10px; /* Adjust as needed */
-}
-
-/* Style to emphasize the active center slide */
-.swiper-slide-active {
-  transform: scale(1.05); /* Scale the active slide */
-  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
-  background-color: #e7d1c3 !important;
-}
-
-/* Ensure non-active slides have normal size */
-.swiper-slide {
-  transform: scale(0.95);
-  background-color: initial; /* Keep default background */
-  transition: transform 0.3s ease-in-out;
-}
-
-.swiper-slide-active h6 {
-  font-size: 25px !important; /* Change the title color of the active slide */
-}
-
-.horizontal-line::before {
-  content: "";
-  display: block;
-  height: 1px;
-  background-color: #7f6d5d; /* Light brown line */
+/* Override container max-widths */
+.container {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+/* 👇 Add this manually to match Figma */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+.boxShadowLight {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+.boxShadowMedium {
+  box-shadow: 0px 4px 8px -2px rgba(9, 30, 66, 0.25),
+    0px 0px 0px 1px rgba(9, 30, 66, 0.08);
 }

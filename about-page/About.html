@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link
+      rel="icon"
+      href="/assets/icons/glossybyte-logo.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav class="py-5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16 items-center">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center">
+              <a href="/index.html"
+                ><img
+                  src="../assets/icons/glossybyte-logo.png"
+                  alt="Logo"
+                  class="h-16 w-auto"
+              /></a>
+            </div>
+
+            <!-- Menu Toggle Button (Mobile) -->
+            <div class="md:hidden">
+              <button id="menu-toggle" class="focus:outline-none">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Menu Items -->
+            <div id="menu" class="hidden md:flex md:items-center space-x-8">
+              <a href="/index.html">Home</a>
+              <a href="/about-page/About.html" class=" ">About</a>
+              <a href="#" class=" ">Product</a>
+              <a href="#" class=" ">Services</a>
+            </div>
+
+            <!-- Contact Button -->
+            <div class="hidden md:block">
+              <a
+                href="/contact-us/Contact.html"
+                class="flex items-center gap-3 mt-2 px-4 py-2 border border-gray-400 rounded-full hover:bg-gray-100 transition"
+              >
+                Get in touch
+                <img
+                  src="/assets/icons/in-touch-icon.svg"
+                  alt="in-touch-icon"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <!-- Overlay Background -->
+          <div
+            id="overlay"
+            class="fixed inset-0 z-40 hidden backdrop-blur-sm bg-white/30 transition duration-300"
+          ></div>
+
+          <!-- Slide-in Mobile Menu -->
+          <!-- Slide-in Mobile Menu -->
+          <div
+            id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-1/2 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 md:hidden"
+          >
+            <!-- Close Button -->
+            <div class="flex justify-end p-4">
+              <button
+                id="close-menu"
+                class="text-gray-700 hover:text-black focus:outline-none"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="p-6 space-y-4">
+              <a href="#" class="block">Home</a>
+              <a href="/about-page/About.html" class="block">About</a>
+              <a href="#" class="block">Product</a>
+              <a href="#" class="block">Services</a>
+              <a
+                href="/contact-us/Contact.html"
+                class="flex items-center gap-3 mt-2 px-4 py-2 border border-gray-400 rounded-full hover:bg-gray-100 transition"
+              >
+                Get in touch
+                <img
+                  src="/assets/icons/in-touch-icon.svg"
+                  alt="in-touch-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="w-full py-[40px] md:py-[60px]">
+      <div class="container mx-auto px-4">
+        <!-- Title block with background image -->
+        <div
+          class="flex flex-col w-[85%] mx-auto relative"
+          style="
+            background-image: url('/assets/images/circle.png'); /* your bg image */
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 80%;
+          "
+        >
+          <span class="text-[2.5rem] md:text-[120px] font-bold leading-tight">
+            ABOUT
+          </span>
+          <span
+            class="text-[2.5rem] md:text-[120px] font-bold leading-tight mb-4 text-end"
+          >
+            GLOSSY BYTE
+          </span>
+        </div>
+
+        <div>
+          <p class="max-w-lg md:pt-20 pt-10">
+            <span class="font-bold">
+              Technology with purpose, built for beauty and wellness.
+            </span>
+            <br />
+            At GlossyByte, we're not just a tech company — we're innovators
+            driven by a deep.
+          </p>
+
+          <span
+            class="font-medium flex items-center justify-end text-end text-[2rem] md:text-[90px] leading-tight"
+          >
+            -GLOSSYBYTE
+          </span>
+        </div>
+
+        <div>
+          <img
+            src="/assets/images/about-us-rectangle.png"
+            alt="about-us-rectangle"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-[40px] md:py-[60px]">
+      <div
+        class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 md:gap-12 gap-5"
+      >
+        <div class="pr-8 lg:pr-16">
+          <h3 class="font-medium leading-tight">
+            We Are Committed To <br />
+            Deliver Unique Digital <br />
+            Solutions.
+          </h3>
+        </div>
+
+        <div class="flex flex-col space-y-6">
+          <div>
+            <span class="font-semibold text-gray-800 mb-1">
+              Empowerment Through Technology
+            </span>
+            <p class="text-gray-600 text-base max-w-sm">
+              We build tools that give control back to professionals.
+            </p>
+          </div>
+
+          <div>
+            <span class="font-semibold text-gray-800 mb-1">
+              Industry-Focused Innovation
+            </span>
+            <p class="text-gray-600 text-base max-w-sm">
+              Every product and service is designed with beauty and wellness in
+              mind.
+            </p>
+          </div>
+
+          <div>
+            <span class="font-semibold text-gray-800 mb-1">
+              Simplicity Meets Scalability
+            </span>
+            <p class="text-gray-600 text-base max-w-sm">
+              Easy to use, built to grow with you.
+            </p>
+          </div>
+
+          <div>
+            <span class="font-semibold text-gray-800 mb-1">
+              Future-Driven
+            </span>
+            <p class="text-gray-600 text-base max-w-sm">
+              We're actively exploring AI and automation to power the next
+              generation of beauty tech.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-[40px] md:py-[60px]">
+      <div
+        class="container mx-auto px-4 text-center bg-[#A0906B26] py-10 rounded-lg"
+      >
+        <div class="max-w-4xl mx-auto mb-12">
+          <h3 class="font-medium leading-tight mb-6">
+            Are you a beauty professional looking to grow your business?
+          </h3>
+          <p class="leading-relaxed mb-8">
+            Boost your salon or spa's online presence with Glosifi. Our platform
+            simplifies client bookings, enhances your brand visibility, and
+            streamlines appointment management, helping you attract more
+            customers and grow your business. Whether you run a small boutique
+            salon or a large wellness center, Glosifi equips you with the tools
+            to thrive in the digital age.
+          </p>
+          <button class="btn btn-secondary mx-auto">Grow My Business</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
+          >
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <img src="/assets/icons/grow-business.svg" alt="grow" />
+            </div>
+            <h6 class="font-medium mb-2">Grow Your Business</h6>
+            <p class="text-gray-600 text-base">
+              This service allows clients to easily schedule appointments for
+              various beauty and wellness treatments.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
+          >
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <img src="/assets/icons/smart-booking.svg" alt="ssmart" />
+            </div>
+            <h6 class="font-medium mb-2">Smart Booking</h6>
+            <p class="text-gray-600 text-base">
+              This service allows clients to easily schedule appointments for
+              various beauty and wellness treatments.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
+          >
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <img src="/assets/icons/engage-client.svg" alt="engage-client" />
+            </div>
+            <h6 class="font-mediumj mb-2">Engage Your Client</h6>
+            <p class="text-gray-600 text-base">
+              This service allows clients to easily schedule appointments for
+              various beauty and wellness treatments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-[40px] md:py-[60px] w-full">
+      <div
+        class="container rounded-2xl overflow-hidden text-center py-10 flex flex-col items-center justify-center"
+        style="
+          background-image: url('/assets/images/CTA\ \(2\).png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        "
+      >
+        <span class="text-[30px] text-white">Have an idea?</span>
+        <span class="text-white mb-2 text-[30px]">
+          Let's get your project started today!
+        </span>
+        <a
+          href="/contact-us/Contact.html"
+          class="inline-block mt-2 px-4 py-2 bg-white w-fit mx-auto rounded-full hover:bg-gray-100 transition"
+        >
+          Get in touch
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <section class="py-[60px] w-full">
+        <div class="container mx-auto px-4">
+          <div
+            class="grid grid-cols-2 lg:grid-cols-4 gap-24 justify-items-center mb-10"
+          >
+            <div class="flex flex-col space-y-1">
+              <p>Glossy Byte Galli, Anamnagar</p>
+              <p>Kathmandu, Nepal</p>
+            </div>
+
+            <div class="flex flex-col space-y-1">
+              <a href="mailto:info@glossybyte.com" class="hover:underline"
+                >info@glossybyte.com</a
+              >
+              <a href="tel:+9771234567890" class="hover:underline"
+                >+977 1234567890</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-1">
+              <a href="#" class="hover:underline">About Us</a>
+              <a href="#" class="hover:underline">Services</a>
+              <a href="#" class="hover:underline">Glosifi</a>
+            </div>
+
+            <div class="flex flex-col space-y-1">
+              <a href="#" class="hover:underline">Twitter</a>
+              <a href="#" class="hover:underline">Facebook</a>
+              <a href="#" class="hover:underline">Instagram</a>
+            </div>
+          </div>
+
+          <hr class="border-t border-gray-300 mb-8" />
+
+          <div
+            class="text-center md:flex md:justify-center md:items-center space-y-2 md:space-y-0 md:space-x-4"
+          >
+            <p class="mb-0">
+              Copyright © 2025 Glossy Byte | All Rights Reserved
+            </p>
+            <div class="hidden md:block">|</div>
+            <div class="flex flex-wrap justify-center space-x-4">
+              <a href="#" class="hover:underline whitespace-nowrap"
+                >Terms and Conditions</a
+              >
+              <a href="#" class="hover:underline whitespace-nowrap"
+                >Privacy Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

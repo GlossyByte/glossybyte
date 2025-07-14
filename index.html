@@ -1,745 +1,728 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GlossyByte</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <meta name="viewport" content="width=`, initial-scale=1.0" />
+    <title>GlossyByte</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="icon"
+      href="/assets/icons/glossybyte-logo.png"
+      type="image/x-icon"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <!-- Swiper CSS -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/output.css" rel="stylesheet" />
+    <!-- public/index.html or your main HTML layout file -->
   </head>
-  <body class="overflow-x-hidden">
-    <header id="header" class="site-header fixed z-50 w-full gradient">
-      <div class="container mx-auto p-4">
-        <div class="flex justify-between items-center">
-          <div class="brand space-x-3">
-            <a href="index.html">
-              <img
-                id="logo"
-                src="assets/glossybyte-logo.png"
-                alt="GlossyByte"
-                class="md:w-32 w-20 transition-all duration-300 ease-in-out"
-              />
-            </a>
+  <body class="bg-white">
+    <header>
+      <nav class="py-5">
+        <div class="container mx-auto px-4 sm:px-`6 lg:px-8">
+          <div class="flex justify-between h-16 items-center">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center">
+              <a href="/index.html"
+                ><img
+                  src="./assets/icons/glossybyte-logo.png"
+                  alt="Logo"
+                  class="h-16 w-auto"
+              /></a>
+            </div>
+
+            <!-- Menu Toggle Button (Mobile) -->
+            <div class="md:hidden">
+              <button id="menu-toggle" class="focus:outline-none">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Menu Items -->
+            <div id="menu" class="hidden md:flex md:items-center space-x-8">
+              <a href="/index.html">Home</a>
+              <a href="/about-page/About.html" class=" ">About</a>
+              <a href="#" class=" ">Product</a>
+              <a href="#" class=" ">Services</a>
+            </div>
+
+            <!-- Contact Button -->
+            <div class="hidden md:block">
+              <a
+                href="/contact-us/Contact.html"
+                class="flex items-center gap-3 mt-2 px-4 py-2 border border-gray-400 rounded-full hover:bg-gray-100 transition"
+              >
+                Get in touch
+                <img
+                  src="/assets/icons/in-touch-icon.svg"
+                  alt="in-touch-icon"
+                />
+              </a>
+            </div>
           </div>
 
-          <!-- Navbar links for desktop -->
-          <nav class="navbar hidden md:flex">
-            <ul class="flex space-x-20 items-center">
-              <li>
-                <a
-                  href="#hero-section"
-                  class="font-[poppins] text-lg transition-colors duration-300 hover:underline hover:text-blue-500"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  class="font-[poppins] text-lg transition-colors duration-300 hover:underline hover:text-blue-500"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  class="font-[poppins] text-lg transition-colors duration-300 hover:underline hover:text-blue-500"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </nav>
+          <!-- Mobile Menu -->
+          <!-- Overlay Background -->
+          <div
+            id="overlay"
+            class="fixed inset-0 z-40 hidden backdrop-blur-sm bg-white/30 transition duration-300"
+          ></div>
 
-          <!-- Hamburger icon for mobile -->
-          <div id="mobile-menu" class="md:hidden flex flex-col cursor-pointer">
-            <div class="bar w-6 h-1 bg-gray-800 mb-1"></div>
-            <div class="bar w-6 h-1 bg-gray-800 mb-1"></div>
-            <div class="bar w-6 h-1 bg-gray-800"></div>
+          <!-- Slide-in Mobile Menu -->
+          <!-- Slide-in Mobile Menu -->
+          <div
+            id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-1/2 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 md:hidden"
+          >
+            <!-- Close Button -->
+            <div class="flex justify-end p-4">
+              <button
+                id="close-menu"
+                class="text-gray-700 hover:text-black focus:outline-none"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="p-6 space-y-4">
+              <a href="/index.html" class="block">Home</a>
+              <a href="/about-page/About.html" class="block">About</a>
+              <a href="#" class="block">Product</a>
+              <a href="#" class="block">Services</a>
+              <a
+                href="/contact-us/Contact.html"
+                class="flex items-center gap-3 mt-2 px-4 py-2 border border-gray-400 rounded-full hover:bg-gray-100 transition"
+              >
+                Get in touch
+                <img
+                  src="/assets/icons/in-touch-icon.svg"
+                  alt="in-touch-icon"
+                />
+              </a>
+            </div>
           </div>
         </div>
-
-        <!-- Mobile Menu with Slide effect -->
-        <nav
-          id="mobile-nav"
-          class="fixed top-0 right-0 bg-gray-200 w-2/3 h-full p-8 transform translate-x-full transition-transform duration-500 ease-in-out hidden"
-        >
-          <button id="close-menu" class="absolute top-4 right-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-black"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-          <ul class="space-y-4 mt-8">
-            <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
-            <li><a href="#about" class="hover:text-gray-400">About Us</a></li>
-
-            <li><a href="#contact" class="btn btn-primary">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
     </header>
 
     <main>
-      <section id="hero-section" class="section-hero gradient pt-16">
-        <div
-          class="flex flex-col lg:flex-row items-center justify-between lg:pl-[4rem] md:pt-10 pr-0 gap-10"
-        >
-          <!-- Left Text Section -->
-          <div class="w-full lg:w-[55%] px-6 space-y-5">
-            <h1
-              class="font-bold leading-none font-[frank] text-[40px] lg:text-[78px] text-[#34251F]"
-            >
-              Revolutionizing Beauty Business
-            </h1>
-            <p class="mt-4 text-lg text-[#34251F] font-[poppins]">
-              At Glossybyte, we are dedicated to revolutionizing the way beauty
-              professionals and clients connect and thrive, fostering a
-              community of creativity and empowerment.
-            </p>
-            <a
-              href="#contact"
-              class="inline-block w-full md:w-auto text-white text-lg font-medium uppercase tracking-wide primary-bgcolor hover:bg-opacity-90 px-6 py-3 mt-8"
-            >
-              Contact us
-            </a>
-          </div>
+      <section class="py-16 w-full">
+        <div class="container mx-auto px-4">
+          <div class="flex md:flex-row flex-col md:gap-8 gap-5 items-center">
+            <div class="md:w-[60%] w-full">
+              <h1 class="font-bold leading-tight">
+                Empowering Beauty <br class="md:block hidden" />
+                <span class="font-normal">&</span> Wellness
+                <span class="font-normal">through</span>
+                <br class="md:block hidden" />
+                Technology
+              </h1>
+            </div>
 
-          <!-- Right Image Section -->
-          <div class="w-full lg:w-[45%]">
-            <img
-              src="assets/hero-image.png"
-              alt="Catalogue"
-              class="w-full h-auto object-cover object-center rounded-l-lg lg:rounded-none"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="trusted-by section-p bg-gray-50">
-        <div class="container mx-auto px-6">
-          <div>
-            <h2
-              class="text-center font-bold mb-8 leading-[1] lg:text-[72px] text-[40px] text-[#34251F]"
-            >
-              Trusted By
-            </h2>
-          </div>
-          <div
-            class="grid grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center"
-          >
-            <div class="partners">
-              <img
-                src="assets/Walmart_Index_Only.svg.png"
-                alt="Deloitte"
-                class="h-auto w-24 object-contain"
-              />
-            </div>
-            <div class="partners">
-              <img
-                src="assets/Walmart_Index_Only.svg.png"
-                alt="Cisco"
-                class="h-auto w-24 object-contain"
-              />
-            </div>
-            <div class="partners">
-              <img
-                src="assets/okta.svg.png"
-                alt="Okta"
-                class="h-auto w-24 object-contain"
-              />
-            </div>
-            <div class="partners">
-              <img
-                src="assets/Volvo_Index_Only.svg.png"
-                alt="Volvo"
-                class="h-auto w-24 object-contain"
-              />
-            </div>
-            <div class="partners">
-              <img
-                src="assets/Walmart_Index_Only.svg.png"
-                alt="Walmart"
-                class="h-auto w-24 object-contain"
-              />
+            <div class="md:w-[40%] w-full space-y-6">
+              <p class="leading-relaxed">
+                GlossyByte is a technology company creating modern tools
+                tailored for the beauty and wellness industry. From Glosifi to
+                custom salon software, we build solutions that help
+                professionals grow, streamline, and succeed.
+              </p>
+              <button class="btn btn-outline gap-3">
+                Know more
+                <img
+                  src="./assets/icons/outline-icon.svg"
+                  alt="icons"
+                  class="w-5 h-5"
+                />
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="about-us section-p">
-        <div class="container mx-auto px-4 sm:px-6">
-          <div class="flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-              <img
-                src="assets/about-us-img.png"
-                alt="About us image"
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
+      <section class="py-10 md:py-14 w-full bg-white">
+        <div class="container mx-auto px-4 text-center">
+          <h6 class="font-semibold mb-8 text-[#4C4C4C]">Trusted Partners</h6>
 
-            <div
-              class="w-full md:w-1/2 text-center md:text-left flex flex-col gap-12"
-            >
-              <div>
-                <h1
-                  class="font-bold mb-8 leading-[1] lg:text-[72px] text-[40px] text-[#34251F]"
-                >
-                  About Us
-                </h1>
-                <p class="text-lg leading-relaxed font-medium text-[#34251F]">
-                  GlossyByte is transforming the Beauty & Wellness industry with
-                  innovative digital solutions powered by AI. Our mission is
-                  simple: to help businesses thrive globally with smarter, more
-                  efficient tools.
-                </p>
-              </div>
-
-              <div
-                class="bg-white flex flex-col sm:flex-row items-center justify-between w-full p-6 gap-6 sm:gap-12 shadow-2xl"
-              >
-                <div class="text-center">
-                  <h5 class="text-3xl font-semibold text-gray-800">2025</h5>
-                  <span class="text-sm">GlossyByte founded</span>
-                </div>
-                <div class="text-center">
-                  <h5 class="text-3xl font-semibold text-gray-800">6555</h5>
-                  <span class="text-sm">Parlor Support</span>
-                </div>
-                <div class="text-center">
-                  <h5 class="text-3xl font-semibold text-gray-800">3025</h5>
-                  <span class="text-sm">Best Reviews</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-[#CAC1AD]">
-        <div class="container mx-auto px-6">
-          <div
-            class="flex flex-col lg:flex-row items-center justify-between gap-8"
-          >
-            <div class="flex flex-col md:flex-row gap-10 w-full items-center">
-              <!-- Titles -->
-              <div class="space-y-4">
-                <h1 class="font-semibold text-[40px] md:text-[56px]">
-                  Mission
-                </h1>
-                <h1 class="font-semibold text-[40px] md:text-[56px]">Vision</h1>
-                <h1 class="font-semibold text-[40px] md:text-[56px]">Values</h1>
-              </div>
-
-              <!-- Icons and Texts -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                <div class="flex flex-col items-center text-center">
-                  <img
-                    src="assets/beauty.png"
-                    alt="Empowering Beauty Professionals"
-                    class="w-10 h-auto mb-3"
-                  />
-                  <span class="text-sm">Empowering Beauty Professionals</span>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                  <img
-                    src="assets/empowering.png"
-                    alt="Streamlining the Beauty Industry"
-                    class="w-10 h-auto mb-3"
-                  />
-                  <span class="text-sm">Streamlining the Beauty Industry</span>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                  <img
-                    src="assets/industry.png"
-                    alt="Providing Innovative Solutions"
-                    class="w-10 h-auto mb-3"
-                  />
-                  <span class="text-sm">Providing Innovative Solutions</span>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                  <img
-                    src="assets/solution.png"
-                    alt="Elevating the Beauty Industry"
-                    class="w-10 h-auto mb-3"
-                  />
-                  <span class="text-sm">Elevating the Beauty Industry</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="services section-p">
-        <div class="container mx-auto px-6">
-          <div class="text-center font-semibold md:pb-14 pb-6">
-            <h1
-              class="font-bold leading-[1] lg:text-[72px] text-[40px] text-[#34251F]"
-            >
-              Our Services
-            </h1>
-          </div>
-
-          <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div class="border-[#e7d1c3] border p-6 text-center py-10 md:py-20">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="assets/bar-chart-analysis (1).png"
-                  alt="bar chart"
-                  class="bg-[#ECE6E133] rounded-full w-24 p-[20px]"
-                />
-              </div>
-              <h6 class="font-semibold text-[20px] text-[#333333] mb-2">
-                Digital Marketing
-              </h6>
-              <p class="text-gray-600 text-[16px]">
-                Reduce manual workloads by automating.
-              </p>
-            </div>
-
-            <div class="border-[#e7d1c3] border p-6 text-center py-10 md:py-20">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="assets/group-people.png"
-                  alt="bar chart"
-                  class="bg-[#ECE6E133] rounded-full w-24 p-[20px]"
-                />
-              </div>
-              <h6 class="font-semibold mb-2 text-[20px] text-[#333333]">
-                Tailored CRM System
-              </h6>
-              <p class="text-gray-600 text-[16px]">
-                Reduce manual workloads by automating.
-              </p>
-            </div>
-
-            <div class="border-[#e7d1c3] border p-6 text-center py-10 md:py-20">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="assets/calender.png"
-                  alt="bar chart"
-                  class="bg-[#ECE6E133] rounded-full w-24 p-[20px]"
-                />
-              </div>
-              <h6 class="font-semibold mb-2 text-[20px] text-[#333333]">
-                Appointment Booking Platform
-              </h6>
-              <p class="text-gray-600 text-[16px]">
-                Reduce manual workloads by automating.
-              </p>
-            </div>
-
-            <div class="border-[#e7d1c3] border p-6 text-center py-10 md:py-20">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="assets/fingerprint.png"
-                  alt="bar chart"
-                  class="bg-[#ECE6E133] rounded-full w-24 p-[20px]"
-                />
-              </div>
-              <h6 class="font-semibold mb-2 text-[20px] text-[#333333]">
-                Skill Training and Consultation
-              </h6>
-              <p class="text-gray-600 text-[16px]">
-                Reduce manual workloads by automating.
-              </p>
-            </div>
-
-            <div class="border-[#e7d1c3] border p-6 text-center py-10 md:py-20">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="assets/layers-group.png"
-                  alt="bar chart"
-                  class="bg-[#ECE6E133] rounded-full w-24 p-[20px]"
-                />
-              </div>
-              <h6 class="font-semibold mb-2 text-[20px] text-[#333333]">
-                Website Development
-              </h6>
-              <p class="text-gray-600 text-[16px]">
-                Reduce manual workloads by automating.
-              </p>
-            </div>
-
-            <div class="border-[#e7d1c3] border p-6 text-center py-10 md:py-20">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="assets/copy.png"
-                  alt="bar chart"
-                  class="bg-[#ECE6E133] rounded-full w-24 p-[20px]"
-                />
-              </div>
-              <h6 class="font-semibold mb-2 text-[20px] text-[#333333]">
-                Personalized Beauty Recommendation
-              </h6>
-              <p class="text-gray-600 text-[16px]">
-                Reduce manual workloads by automating.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-[#CAC1AD] py-12">
-        <div
-          class="flex flex-col lg:flex-row items-center justify-between lg:pl-[3rem] md:pt-10 pr-0 gap-10"
-        >
-          <!-- Text Content -->
-          <div class="container mx-auto px-6 w-full lg:w-[40%]">
-            <div class="flex flex-col text-center md:text-left">
-              <h2
-                class="text-[#34251F] text-4xl lg:text-[72px] font-semibold leading-[1]"
-              >
-                Our Product
-              </h2>
-
-              <p class="mt-3 mb-8 text-lg lg:text-[18px] text-[#34251F]">
-                Discover and book appointments with top beauty and wellness
-                professionals effortlessly with Glosifi.
-              </p>
-
-              <div class="inline-flex w-full sm:w-auto">
-                <a
-                  href="https://glosifi.com/"
-                  target="_blank"
-                  class="inline-flex items-center justify-center w-fit px-6 py-2 text-white duration-300 primary-bgcolor"
-                >
-                  Visit glosifi.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Image Section -->
-          <div class="w-full lg:w-[60%] lg:pl-0 pl-6">
-            <img
-              src="assets/product img.png"
-              alt="mobile"
-              class="w-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white section-p">
-        <div class="container px-6 mx-auto">
-          <h1
-            class="font-bold mb-8 leading-[1] lg:text-[72px] text-[40px] text-[#34251F] text-center"
-          >
-            Testimonials
-          </h1>
-
-          <!-- Swiper -->
-          <div class="swiper max-w-7xl mx-auto mt-8 xl:mt-10">
+          <div class="swiper trusted-partners-swiper">
             <div class="swiper-wrapper">
-              <!-- Slide 1 -->
-              <div class="swiper-slide p-6 bg-gray-100 md:p-8">
-                <div class="pb-3">
-                  <img src="assets/extra.png" alt="icon" class="w-6 h-auto" />
-                </div>
-                <div>
-                  <h6 class="font-semibold">Robbert Wilson</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Tempore quibusdam ducimus libero ad tempora doloribus expedita
-                  laborum saepe voluptas perferendis delectus assumenda rerum,
-                  culpa aperiam dolorum, obcaecati corrupti aspernatur a.
-                </p>
+              <!-- Repeat this block for each logo -->
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
               </div>
-              <!-- Slide 2 -->
-              <div class="swiper-slide p-6 bg-pink md:p-8">
-                <div class="pb-3">
-                  <img src="assets/extra.png" alt="icon" class="w-6 h-auto" />
-                </div>
-                <div>
-                  <h6 class="font-semibold primary-txtcolor">Robbert Wilson</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Tempore quibusdam ducimus libero ad tempora doloribus expedita
-                  laborum saepe voluptas perferendis delectus assumenda rerum,
-                  culpa aperiam dolorum, obcaecati corrupti aspernatur a.
-                </p>
+              <!-- copy/paste for all logos -->
+              <div
+                class="swiper-slide flex items-center justify-center opacity-80"
+              >
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
               </div>
-              <!-- Slide 3 -->
-              <div class="swiper-slide p-6 bg-gray-100 md:p-8">
-                <div class="pb-3">
-                  <img src="assets/extra.png" alt="icon" class="w-6 h-auto" />
-                </div>
-                <div>
-                  <h6 class="font-semibold primary-txtcolor">Robbert Wilson</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Tempore quibusdam ducimus libero ad tempora doloribus expedita
-                  laborum saepe voluptas perferendis delectus assumenda rerum,
-                  culpa aperiam dolorum, obcaecati corrupti aspernatur a.
-                </p>
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
               </div>
-              <!-- Slide 4 -->
-              <div class="swiper-slide p-6 bg-gray-100 md:p-8">
-                <div class="pb-3">
-                  <img src="assets/extra.png" alt="icon" class="w-6 h-auto" />
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
+              </div>
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
+              </div>
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
+              </div>
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
+              </div>
+              <div class="swiper-slide flex items-center justify-center">
+                <img
+                  src="./assets/icons/iba-member.svg"
+                  alt="IBA Member Portal Logo"
+                  class="h-12 object-contain"
+                />
+              </div>
+              <!-- Add more as needed -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-[40px] md:py-[60px] w-full bg-[#F7F7F7]">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div class="flex flex-col items-center text-center">
+              <div class="mb-4">
+                <img
+                  src="/assets/icons/elevate-beauty.svg"
+                  alt="elevate-beauty"
+                />
+              </div>
+              <p>Elevating the Beauty Industry</p>
+            </div>
+
+            <div class="flex flex-col items-center text-center">
+              <div class="mb-4">
+                <img
+                  src="/assets/icons/empower-beauty.svg"
+                  alt="elevate-beauty"
+                />
+              </div>
+              <p>Empowering Beauty Professionals</p>
+            </div>
+
+            <div class="flex flex-col items-center text-center">
+              <div class="mb-4">
+                <img
+                  src="/assets/icons/streamline-beauty.svg"
+                  alt="elevate-beauty"
+                />
+              </div>
+              <p>Streamlining the Beauty Industry</p>
+            </div>
+
+            <div class="flex flex-col items-center text-center">
+              <div class="mb-4">
+                <img
+                  src="/assets/icons/providing-beauty.svg"
+                  alt="elevate-beauty"
+                />
+              </div>
+              <p>Providing Innovative Solutions</p>
+            </div>
+          </div>
+
+          <div class="flex md:flex-row flex-col gap-6 items-center">
+            <div class="md:w-[55%] w-full">
+              <h2 class="font-medium leading-tight">
+                A place where innovation thrive every day
+              </h2>
+            </div>
+
+            <div class="flex flex-col items-start space-y-6 w-full md:w-[45%]">
+              <p class="leading-relaxed">
+                GlossyByte is transforming the Beauty & Wellness industry with
+                innovative digital solutions powered by AI. Our mission is
+                simple: to help businesses thrive globally with smarter, more
+                efficient tools.
+              </p>
+              <button class="btn btn-outline gap-3">
+                Know more
+                <img
+                  src="./assets/icons/outline-icon.svg"
+                  alt="icons"
+                  class="w-5 h-5"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-[40px] md:py-[60px] w-full">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center gap-10 text-left mb-12">
+            <h2 class="leading-tight mb-2">
+              Services <br />
+              <span class="text-[#4c4c4c]">We Provide</span>
+            </h2>
+            <p class="max-w-sm">
+              We employ a flexible marketing approach that upgrade your
+              productivity.
+            </p>
+          </div>
+
+          <div class="swiper services-swiper">
+            <div class="swiper-wrapper">
+              <div
+                class="swiper-slide bg-[#956BA026] rounded-xl shadow-lg p-6 flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-y-10 justify-between">
+                  <div
+                    class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4"
+                  >
+                    <img
+                      src="/assets/icons/salon-mngt.svg"
+                      alt="appointment-booking"
+                      class="w-14 h-14 rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h6 class="mb-2">Custom Salon Management Software</h6>
+                    <p class="border-t border-gray-400 pt-2 text-gray-500">
+                      We build tailored salon and spa management systems.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h6 class="font-semibold primary-txtcolor">Robbert Wilson</h6>
+              </div>
+              <div
+                class="swiper-slide bg-[#F2F2F2] rounded-xl shadow-lg p-6 flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-y-10 justify-between">
+                  <div
+                    class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4"
+                  >
+                    <img
+                      src="/assets/icons/individual-crm.svg"
+                      alt="appointment-booking"
+                      class="w-14 h-14 rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h6 class="mb-2">Individual CRM Systems</h6>
+                    <p class="border-t border-gray-400 pt-2 text-gray-500">
+                      We design personalized Customer Relationship Management
+                      systems.
+                    </p>
+                  </div>
                 </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Tempore quibusdam ducimus libero ad tempora doloribus expedita
-                  laborum saepe voluptas perferendis delectus assumenda rerum,
-                  culpa aperiam dolorum, obcaecati corrupti aspernatur a.
-                </p>
+              </div>
+              <div
+                class="swiper-slide bg-[#A0906B26] rounded-xl shadow-lg p-6 flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-y-10 justify-between">
+                  <div
+                    class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4"
+                  >
+                    <img
+                      src="/assets/icons/inventory-mngt.svg"
+                      alt="appointment-booking"
+                      class="w-14 h-14 rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h6 class="mb-2">Inventory Management Tools</h6>
+                    <p class="border-t border-gray-400 pt-2 text-gray-500">
+                      Avoid stockouts and overordering with our smart inventory
+                      tools
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="swiper-slide bg-[#F5EBD3] rounded-xl shadow-lg p-6 flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-y-10 justify-between">
+                  <div
+                    class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4"
+                  >
+                    <img
+                      src="/assets/icons/appointment-booking.svg"
+                      alt="appointment-booking"
+                      class="w-14 h-14 rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h6 class="mb-2">Appointment Booking Systems</h6>
+                    <p class="border-t border-gray-400 pt-2 text-gray-500">
+                      Simplify your client experience with a branded booking
+                      system
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="swiper-slide bg-[#76A06B26] rounded-xl shadow-lg p-6 flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-y-10 justify-between">
+                  <div
+                    class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4"
+                  >
+                    <img
+                      src="/assets/icons/websit-design.svg"
+                      alt="appointment-booking"
+                      class="w-14 h-14 rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h6 class="mb-2">Website Design & Development</h6>
+                    <p class="border-t border-gray-400 pt-2 text-gray-500">
+                      We build modern, responsive websites for beauty businesses
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
 
-            <!-- Add Navigation Buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <!-- Add navigation buttons if you want -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
           </div>
         </div>
       </section>
 
-      <section id="contact" class="bg-white py-12 scroll-mt-12">
-        <div class="text-center mb-10">
-          <h1
-            class="font-bold mb-8 leading-[1] lg:text-[72px] text-[40px] text-[#34251F]"
-          >
-            Contact Us
-          </h1>
-        </div>
-
-        <div class="lg:flex items-center justify-between lg:-mx-10">
-          <div
-            class="lg:w-1/2 w-full mt-8 lg:mt-0 primary-bgcolor px-5 md:px-20 py-10 text-white relative overflow-hidden lg:mx-10 height"
-          >
-            <div>
-              <h3
-                class="text-white w-2/3 mx-auto leading-tight mb-6 text-3xl md:text-4xl"
+      <section class="py-[40px] md:py-[60px] w-full">
+        <div class="container mx-auto px-4">
+          <!-- Logo and CTA -->
+          <div class="flex flex-col items-center mb-16 text-center">
+            <img
+              src="/assets/icons/glosifi.svg"
+              alt="Glosifi Logo"
+              class="mb-6 h-16 object-contain"
+            />
+            <button
+              class="btn btn-primary flex items-center gap-3"
+              onclick="window.open('https://glosifi.com/', '_blank')"
+            >
+              Check our product
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                Transform your Beauty Business Today!
-              </h3>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Main Content Grid -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center md:mb-16 mb-10"
+          >
+            <!-- Image -->
+            <img
+              src="/assets/images/explore&book.png"
+              alt="Explore & book trusted services near you screenshot"
+              class="w-full h-auto"
+            />
+
+            <!-- Text Content -->
+            <div>
+              <h2 class="font-bold leading-tight mb-6">
+                Explore <span class="font-medium">&</span> reserve
+                <span class="font-medium">trusted</span> services
+                <span class="font-medium">near you</span>
+              </h2>
+
+              <!-- Ratings -->
+              <div class="flex items-center mb-12">
+                <!-- Profile Images -->
+                <div class="flex -space-x-2 mr-3">
+                  <img
+                    class="w-10 h-10 rounded-full"
+                    src="/assets/images/review.png"
+                    alt="Profile 1"
+                  />
+                  <img
+                    class="w-10 h-10 rounded-full -ml-4"
+                    src="/assets/images/review.png"
+                    alt="Profile 2"
+                  />
+                  <img
+                    class="w-10 h-10 rounded-full -ml-4"
+                    src="/assets/images/review.png"
+                    alt="Profile 3"
+                  />
+                </div>
+
+                <div class="flex flex-col items-center">
+                  <!-- Stars -->
+                  <div class="flex items-center mr-2">
+                    <svg
+                      class="w-5 h-5 text-yellow-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 15l-5.878 3.09 1.123-6.545L.487 7.009l6.572-.955L10 0l2.941 6.054 6.572.955-4.758 4.636 1.123 6.545z"
+                      />
+                    </svg>
+                    <!-- repeat as needed -->
+                    <svg
+                      class="w-5 h-5 text-yellow-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 15l-5.878 3.09 1.123-6.545L.487 7.009l6.572-.955L10 0l2.941 6.054 6.572.955-4.758 4.636 1.123 6.545z"
+                      />
+                    </svg>
+                    <svg
+                      class="w-5 h-5 text-yellow-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 15l-5.878 3.09 1.123-6.545L.487 7.009l6.572-.955L10 0l2.941 6.054 6.572.955-4.758 4.636 1.123 6.545z"
+                      />
+                    </svg>
+                    <svg
+                      class="w-5 h-5 text-yellow-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 15l-5.878 3.09 1.123-6.545L.487 7.009l6.572-.955L10 0l2.941 6.054 6.572.955-4.758 4.636 1.123 6.545z"
+                      />
+                    </svg>
+                    <svg
+                      class="w-5 h-5 text-yellow-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 15l-5.878 3.09 1.123-6.545L.487 7.009l6.572-.955L10 0l2.941 6.054 6.572.955-4.758 4.636 1.123 6.545z"
+                      />
+                    </svg>
+                    <!-- Rating Text -->
+                    <span class="ml-2"> 4.9 </span>
+                  </div>
+                  <p>from 8K+ reviews</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Features and Images -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <!-- Feature Description -->
+            <div class="md:w-[80%] w-full">
+              <p class="mb-4">
+                Discover and book appointments with top beauty and wellness
+                professionals effortlessly with Glosifi.
+              </p>
+
+              <ul class="list-disc list-inside space-y-2">
+                <li>Easy Booking & Calendar</li>
+                <li>Client CRM</li>
+                <li>Inventory Tracking</li>
+                <li>Team & HR Tools</li>
+                <li>Promotions & Branding Personalization</li>
+              </ul>
+
+              <button
+                class="btn btn-secondary mt-5"
+                onclick="window.open('https://glosifi.com/', '_blank')"
+              >
+                Visit Glosifi for more details
+              </button>
             </div>
 
-            <div class="absolute bottom-0">
+            <!-- Screenshots -->
+            <div class="grid grid-cols-2 gap-6 w-full items-center">
+              <div>
+                <img
+                  src="/assets/images/exlore-img1.png"
+                  alt="Glosifi screenshot"
+                  class="w-full h-auto"
+                />
+                <img
+                  src="/assets/images/explore-img2.png"
+                  alt="Glosifi screenshot"
+                  class="w-full h-auto"
+                />
+              </div>
+
               <img
-                src="assets/makeup-lady.png"
-                alt="Makeup lady"
-                class="max-w-xs md:max-w-sm"
+                src="/assets/images/explore-img3.png"
+                alt="Glosifi screenshot"
+                class="w-full h-auto"
               />
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="lg:w-1/2 w-full mt-8 lg:mt-0 lg:mx-10">
-            <div class="shadow-2xl p-6 md:p-10 bg-white border-2">
-              <form>
-                <div class="flex flex-wrap mb-4 -mx-2">
-                  <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                    <input
-                      type="text"
-                      placeholder="First Name"
-                      class="block w-full px-5 py-3 text-gray-700 placeholder-black border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                    />
-                  </div>
-                  <div class="w-full md:w-1/2 px-2">
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      class="block w-full px-5 py-3 text-gray-700 placeholder-black border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                    />
-                  </div>
-                </div>
+      <section class="py-[40px] md:py-[60px] w-full">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+          <div class="mb-4 text-center items-center justify-center flex">
+            <img src="/assets/icons/quotes.svg" alt="quotes" />
+          </div>
 
-                <div class="w-full mb-4">
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    class="block w-full px-5 py-3 text-gray-700 placeholder-black border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                  />
-                </div>
-                <div class="w-full mb-4">
-                  <input
-                    type="text"
-                    placeholder="Phone Number"
-                    class="block w-full px-5 py-3 text-gray-700 placeholder-black border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                  />
-                </div>
+          <h6 class="leading-relaxed font-medium mb-6">
+            Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
+            phasellus mollis sit aliquam sit nullam.
+          </h6>
 
-                <div class="w-full mb-6">
-                  <textarea
-                    class="block w-full h-32 md:h-48 px-5 py-3 text-gray-700 placeholder-black border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-
-                <button
-                  class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform primary-bgcolor"
-                >
-                  Free Consultation
-                </button>
-              </form>
+          <div class="flex items-center justify-center">
+            <img
+              src="/assets/images/review.png"
+              alt="Brian Clark Profile"
+              class="w-20 h-20 rounded-full object-cover"
+            />
+            <div>
+              <p class="font-semibold">Brian Clark</p>
+              <p class="">VP of Marketing</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="py-[40px] md:py-[60px] w-full">
+        <div
+          class="container rounded-2xl overflow-hidden text-center py-10 flex flex-col items-center justify-center"
+          style="
+            background-image: url('/assets/images/CTA\ \(2\).png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          "
+        >
+          <span class="text-[30px] text-white">Have an idea?</span>
+          <span class="text-white mb-2 text-[30px]">
+            Let's get your project started today!
+          </span>
+          <a
+            href="/contact-us/Contact.html"
+            class="inline-block mt-2 px-4 py-2 bg-white w-fit mx-auto rounded-full hover:bg-gray-100 transition"
+          >
+            Get in touch
+          </a>
         </div>
       </section>
     </main>
 
     <footer>
-      <section class="primary-bgcolor py-10">
-        <div class="container px-6 mx-auto">
+      <section class="py-[40px] md:py-[60px] w-full">
+        <div class="container mx-auto px-4">
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-y-10"
+            class="grid grid-cols-2 lg:grid-cols-4 gap-24 justify-items-center mb-10"
           >
-            <!-- Logo -->
-            <div>
-              <a href="index.html">
-                <img src="assets/logo2.png" alt="logo" />
-              </a>
+            <div class="flex flex-col space-y-1">
+              <p>Glossy Byte Galli, Anamnagar</p>
+              <p>Kathmandu, Nepal</p>
             </div>
 
-            <!-- Quick Links -->
-            <div>
-              <p class="font-semibold text-white">About GlossyByte</p>
-
-              <div class="flex flex-col items-start mt-5 space-y-2">
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Products</a
-                >
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Overview</a
-                >
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Pricing</a
-                >
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Releases</a
-                >
-              </div>
-            </div>
-
-            <div>
-              <p class="font-semibold text-white">For Business</p>
-
-              <div class="flex flex-col items-start mt-5 space-y-2">
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Pricing</a
-                >
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Setup</a
-                >
-                <a
-                  href="#"
-                  class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                  >Support</a
-                >
-              </div>
-            </div>
-
-            <!-- Stay up to date -->
-            <div>
-              <h6 class="text-white font-semibold tracking-tight">
-                Stay up to date
-              </h6>
-
-              <div
-                class="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row"
+            <div class="flex flex-col space-y-1">
+              <a href="mailto:info@glossybyte.com" class="hover:underline"
+                >info@glossybyte.com</a
               >
-                <input
-                  id="email"
-                  type="text"
-                  class="px-4 py-2 text-gray-700 bg-white border focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
-                  placeholder="Email Address"
-                />
+              <a href="tel:+9771234567890" class="hover:underline"
+                >+977 1234567890</a
+              >
+            </div>
 
-                <button
-                  class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto focus:outline-none footer-btn-color"
-                >
-                  Submit
-                </button>
-              </div>
+            <div class="flex flex-col space-y-1">
+              <a href="#" class="hover:underline">About Us</a>
+              <a href="#" class="hover:underline">Services</a>
+              <a href="#" class="hover:underline">Glosifi</a>
+            </div>
+
+            <div class="flex flex-col space-y-1">
+              <a href="#" class="hover:underline">Twitter</a>
+              <a href="#" class="hover:underline">Facebook</a>
+              <a href="#" class="hover:underline">Instagram</a>
             </div>
           </div>
 
-          <!-- Horizontal line -->
-          <div class="container mx-auto px-6">
-            <div
-              class="flex justify-end items-center gap-3 pt-2 space-x-6 text-sm text-white horizontal-line"
-            >
-              <a
-                href="#"
-                class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                >Terms</a
-              >
-              <a
-                href="#"
-                class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                >Privacy</a
-              >
-              <a
-                href="#"
-                class="transition-colors duration-300 hover:underline hover:text-blue-500 footer-color"
-                >Cookies</a
-              >
-            </div>
-          </div>
+          <hr class="border-t border-gray-300 mb-8" />
 
-          <div class="text-center footer-color">
-            <p>
-              &copy; All Right Reserved.
-              <a href="/" class="pointer hover:text-blue-50">GlossyByte.com</a>
+          <div
+            class="text-center md:flex md:justify-center md:items-center space-y-2 md:space-y-0 md:space-x-4"
+          >
+            <p class="mb-0">
+              Copyright © 2025 Glossy Byte | All Rights Reserved
             </p>
+            <div class="hidden md:block">|</div>
+            <div class="flex flex-wrap justify-center space-x-4">
+              <a href="#" class="hover:underline whitespace-nowrap"
+                >Terms and Conditions</a
+              >
+              <a href="#" class="hover:underline whitespace-nowrap"
+                >Privacy Policy</a
+              >
+            </div>
           </div>
         </div>
       </section>
     </footer>
-    <script src="js/script.js"></script>
-    <script src="js/navbar.js"></script>
+
+    <script src="./js/script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   </body>
 </html>

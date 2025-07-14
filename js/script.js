@@ -1,67 +1,82 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Scroll to section on menu click
-  const links = document.querySelectorAll(".navbar a");
+  const toggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("overlay");
+  const closeBtn = document.getElementById("close-menu");
+  closeBtn.addEventListener("click", closeMenu);
 
-  links.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
+  // Function to open the menu
+  function openMenu() {
+    mobileMenu.classList.remove("translate-x-full");
+    mobileMenu.classList.add("translate-x-0");
+    overlay.classList.remove("hidden");
+  }
 
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 50, // Adjusting for navbar height
-          behavior: "smooth",
-        });
-      }
-    });
+  // Function to close the menu
+  function closeMenu() {
+    mobileMenu.classList.remove("translate-x-0");
+    mobileMenu.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  }
+
+  // Toggle on button click
+  toggle.addEventListener("click", () => {
+    if (mobileMenu.classList.contains("translate-x-full")) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
   });
 
-  // Add active class on scroll to sections
-  const sections = document.querySelectorAll("section");
-  const options = {
-    threshold: 0.5, // This can be adjusted depending on when you want the link to become active
-  };
-});
+  // Optional: Close when clicking on the overlay
+  overlay.addEventListener("click", closeMenu);
 
-if ("scrollRestoration" in history) {
-  history.scrollRestoration = "manual";
-}
-
-window.addEventListener("load", function () {
-  if (window.location.hash) {
-    const hash = window.location.hash;
-    history.replaceState(null, null, " ");
-    window.scrollTo(0, 0);
-    setTimeout(() => {
-      history.replaceState(null, null, hash);
-    }, 0);
-  }
-});
-
-var swiper = new Swiper(".swiper", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  loop: true, // Enables continuous loop mode
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  centeredSlides: true,
-  breakpoints: {
-    768: {
-      slidesPerView: 2, // 2 slides per view on tablet
+  // Swiper for Trusted Partners
+  const trustedPartnersSwiper = new Swiper(".trusted-partners-swiper", {
+    slidesPerView: 4,
+    spaceBetween: 100,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
     },
-    1024: {
-      slidesPerView: 3, // 3 slides per view on larger screens
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+      1440: {
+        slidesPerView: 6,
+      },
     },
-  },
+  });
+
+  // Swiper for Services
+  const servicesSwiper = new Swiper(".services-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    // navigation: {
+    //   nextEl: ".services-swiper .swiper-button-next",
+    //   prevEl: ".services-swiper .swiper-button-prev",
+    // },
+    // pagination: {
+    //   el: ".services-swiper .swiper-pagination",
+    //   clickable: true,
+    // },
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 4 },
+    },
+  });
 });
